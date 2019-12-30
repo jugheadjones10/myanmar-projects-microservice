@@ -227,11 +227,10 @@
                 .then((myJson) => {
                     //console.log(myJson)
                     var featuresArray = []
-                    JSON.parse(myJson).forEach(element => {
+                    myJson.forEach(element => {
                         console.log(element)
                     })
                     
-
                     // var newJson = {
                     //     type: "FeatureCollection",
                     //     crs: {
