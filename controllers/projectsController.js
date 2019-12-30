@@ -17,7 +17,7 @@ exports.delete_project = function(req, res) {
 }
 
 exports.create_project = function(req, res) {
-    Project.create({location_url: [req.query.long, req.query.lat], date: req.query.date, type: req.query.type }, function(err, project_instance) {
+    Project.create({location: [req.query.long, req.query.lat], date: req.query.date, type: req.query.type }, function(err, project_instance) {
         if (err) console.log("There has been the following error: " + err)
         res.send(JSON.stringify(project_instance))
     })
