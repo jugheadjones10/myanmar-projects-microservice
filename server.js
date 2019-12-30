@@ -2,6 +2,11 @@ var express = require("express")
 var projectsRouter = require("./routes/projects")
 //Do I need to add /index.js for the above?
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 7000
+}
+
 const app = express()
 
 var mongoose = require("mongoose")
@@ -15,6 +20,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use("/projects", projectsRouter)
 
-app.listen(7000, () =>
-  console.log(`Example app listening on port ${7000}!`)
+app.listen(port, () =>
+  console.log(`Example app listening on port ${port}!`)
 )
