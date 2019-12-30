@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/jugheadjones10/myanmar-projects-microservice/issues"
   },
-  "homepage": "https://github.com/jugheadjones10/myanmar-projects-microservice#readme"
+  "homepage": "https://github.com/jugheadjones10/myanmar-projects-microservice#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.3"
+  }
 }
