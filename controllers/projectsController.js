@@ -15,7 +15,7 @@ exports.read_geojson_projects = function(req, res){
 
         var features = []
         projects.forEach(element => {
-          console.log(element);
+          console.log(element)
           features.push({
             id: element._id,
             date: element.date,
@@ -23,7 +23,7 @@ exports.read_geojson_projects = function(req, res){
             lat: parseInt(element.location[1], 10)
           })
         })
-        return GeoJSON.parse(features, { Point: ["lat", "long"]})
+        res.send(GeoJSON.parse(features, { Point: ["lat", "long"]}))
      })
 }
 
