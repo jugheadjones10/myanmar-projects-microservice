@@ -14,7 +14,7 @@ exports.read_geojson_projects = function(req, res){
        if (err) console.log("There has been the following error: " + err);
 
         var features = []
-        myJson.forEach(element => {
+        projects.forEach(element => {
           console.log(element);
           features.push({
             id: element._id,
