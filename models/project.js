@@ -4,7 +4,7 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var ProjectSchema = new Schema({
-  location_url: String,
+  location: Array,
   date: String,
   type: {
     type: String,

@@ -1,4 +1,5 @@
 var express = require("express")
+var path = require("path")  
 var projectsRouter = require("./routes/projects")
 //Do I need to add /index.js for the above?
 
@@ -17,6 +18,10 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+app.get("/", function(req, res){
+  res.sendFile(path.join(__dirname + "/google-maps-part/index.html"))
+})
 
 app.use("/projects", projectsRouter)
 
