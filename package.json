@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jugheadjones10/myanmar-projects-microservice#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "geojson": "^0.5.0",
     "mongoose": "^5.8.3",
     "path": "^0.12.7"
   }

@@ -1,4 +1,5 @@
 var Project = require("../models/project")
+var GeoJSON = require("geojson")
 
 exports.read_projects = function(req, res) {
     Project.find({}, function(err, projects) {
@@ -6,6 +7,24 @@ exports.read_projects = function(req, res) {
 
         res.send(JSON.stringify(projects))
     })
+}
+
+exports.read_geojson_projects = function(req, res){
+     Project.find({}, function(err, projects) {
+       if (err) console.log("There has been the following error: " + err);
+
+        var features = []
+        myJson.forEach(element => {
+          console.log(element);
+          features.push({
+            id: element._id,
+            date: element.date,
+            long: parseInt(element.location[0], 10),
+            lat: parseInt(element.location[1], 10)
+          })
+        })
+        return GeoJSON.parse(features, { Point: ["lat", "long"]})
+     })
 }
 
 exports.read_project = function(req, res) {
