@@ -3,7 +3,6 @@ var router = express.Router()
 
 var project_controller = require("../controllers/projectsController")
 
-
 router.get("/", project_controller.read_projects)
 router.get("/geojson", project_controller.read_geojson_projects)
 router.get("/:id", project_controller.read_project)
