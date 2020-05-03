@@ -235,7 +235,22 @@
 
                 popup
                     .setLngLat(coordinates)
-                    .setHTML(pointTime)
+                    //.setHTML(pointTime)
+                    .setHTML(`
+                    <html>
+                       <head>
+                                <style>
+                                    p{
+                                        color: black;
+                                    }
+                                </style>           
+                        </head>
+                        <body>
+                            <h1>Hey man</h1>
+                            <p>this is some text about a village that we are helping</p>
+                        <body>
+                    </html>
+                    `)
                     .addTo(map)
             })
             map.on('mouseleave', 'unclustered-point', function () {
@@ -254,7 +269,17 @@
     
     </script>
 
-
+        <!-- <head>
+                <style>
+                    p{
+                        color: black;
+                    }
+                </style>           
+        </head>
+        <body>
+            <h1>Hey man</h1>
+            <p>this is some text about a village that we are helping</p>
+        <body>   -->
 
 </body>
 
