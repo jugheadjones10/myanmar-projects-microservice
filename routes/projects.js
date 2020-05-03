@@ -11,6 +11,6 @@ router.delete("/:id", project_controller.delete_project)
 
 router.post("/", project_controller.create_project)
 
-router.put("/:id", project_controller.update_proejct)
+router.put("/:id", project_controller.update_project)
 
 module.exports = router

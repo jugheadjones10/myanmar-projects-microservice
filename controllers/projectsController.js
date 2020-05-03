@@ -42,6 +42,6 @@ exports.create_project = function(req, res) {
     })
 }
 
-exports.update_proejct = function(req, res) {
+exports.update_project = function(req, res) {
 
 }

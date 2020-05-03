@@ -98,19 +98,19 @@
                     JSON.stringify(e.lngLat.wrap())
             })
 
-        var marker = new mapboxgl.Marker({
-                draggable: true
-        })
-        .setLngLat([96, 22])
-        .addTo(map)
+        // var marker = new mapboxgl.Marker({
+        //         draggable: true
+        // })
+        // .setLngLat([96, 22])
+        // .addTo(map)
 
-        function onDragEnd() {
-            var lngLat = marker.getLngLat()
-            coordinates.style.display = 'block'
-            coordinates.innerHTML =
-                'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat
-        }
-        marker.on('dragend', onDragEnd)
+        // function onDragEnd() {
+        //     var lngLat = marker.getLngLat()
+        //     coordinates.style.display = 'block'
+        //     coordinates.innerHTML =
+        //         'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat
+        // }
+        // marker.on('dragend', onDragEnd)
 
         map.on('load', function () {
             // Add a new source from our GeoJSON data and set the
@@ -119,7 +119,7 @@
                 type: 'geojson',
                 // Point to GeoJSON data. This example visualizes all M1.0+ earthquakes
                 // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-                data: "https://morning-bayou-88704.herokuapp.com/projects/geojson",
+                data: "https://myanmar-map.herokuapp.com/projects/geojson",
                     //'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
                 cluster: true,
                 clusterMaxZoom: 14, // Max zoom to cluster points on
@@ -203,24 +203,6 @@
                 var features = map.queryRenderedFeatures(e.point, {
                     layers: ['clusters']
                 });
-                var clusterId = features[0].properties.cluster_id;
-                map.getSource('earthquakes').getClusterExpansionZoom(
-                    clusterId,
-                    function (err, zoom) {
-                        if (err) return;
-
-                        map.easeTo({
-                            center: features[0].geometry.coordinates,
-                            zoom: zoom
-                        })
-                    }
-                )
-            })
-
-            map.on('click', 'clusters', function (e) {
-                var features = map.queryRenderedFeatures(e.point, {
-                    layers: ['clusters']
-                });
                 console.log(features)
                 var clusterId = features[0].properties.cluster_id;
                 map.getSource('earthquakes').getClusterExpansionZoom(
@@ -258,7 +240,7 @@
             })
             map.on('mouseleave', 'unclustered-point', function () {
                 map.getCanvas().style.cursor = '';
-                popup.remove()           
+                popup.remove()
             })
 
 
