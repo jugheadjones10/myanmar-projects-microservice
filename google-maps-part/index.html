@@ -45,6 +45,12 @@
             display: none;
         }
     </style>
+
+    <style>
+        popup-test {
+            color: pink;
+        }
+    </style>
 </head>
 
 <body>
@@ -220,7 +226,8 @@
 
             var popup = new mapboxgl.Popup({
                 closeButton: false,
-                closeOnClick: false
+                closeOnClick: false,
+                className: "popup-test"
             })
             map.on('mouseenter', 'unclustered-point', function (e) {
                 map.getCanvas().style.cursor = 'pointer'
@@ -238,12 +245,7 @@
                     //.setHTML(pointTime)
                     .setHTML(`
                     <html>
-                       <head>
-                                <style>
-                                    p{
-                                        color: black;
-                                    }
-                                </style>           
+                       <head>          
                         </head>
                         <body>
                             <h1>Hey man</h1>
