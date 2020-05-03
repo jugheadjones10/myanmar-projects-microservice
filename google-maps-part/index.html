@@ -45,12 +45,6 @@
             display: none;
         }
     </style>
-
-    <style>
-        popup-test {
-            color: pink;
-        }
-    </style>
 </head>
 
 <body>
@@ -245,11 +239,16 @@
                     //.setHTML(pointTime)
                     .setHTML(`
                     <html>
-                       <head>          
+                       <head>   
+                            <style>
+                                p{
+                                    color: black;
+                                }
+                            </style>                
                         </head>
                         <body>
                             <h1>Hey man</h1>
-                            <p class="popup-test">this is some text about a village that we are helping</p>
+                            <p>this is some text about a village that we are helping</p>
                         <body>
                     </html>
                     `)
