@@ -219,9 +219,8 @@
             })
 
             var popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false,
-                className: "popup-test"
+                closeButton: true,
+                closeOnClick: true,
             })
             map.on('mouseenter', 'unclustered-point', function (e) {
                 map.getCanvas().style.cursor = 'pointer'
@@ -254,11 +253,10 @@
                     `)
                     .addTo(map)
             })
-            map.on('mouseleave', 'unclustered-point', function () {
-                map.getCanvas().style.cursor = '';
-                popup.remove()
-            })
-
+            // map.on('mouseleave', 'unclustered-point', function () {
+            //     map.getCanvas().style.cursor = '';
+            //     popup.remove()
+            // })
 
             map.on('mouseenter', 'clusters', function () {
                 map.getCanvas().style.cursor = 'pointer';
@@ -269,18 +267,6 @@
         })
     
     </script>
-
-        <!-- <head>
-                <style>
-                    p{
-                        color: black;
-                    }
-                </style>           
-        </head>
-        <body>
-            <h1>Hey man</h1>
-            <p>this is some text about a village that we are helping</p>
-        <body>   -->
 
 </body>
 
