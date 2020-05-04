@@ -144,11 +144,6 @@ map.on('load', function () {
         closeOnClick: true,
     })
 
-    var largePopup = new mapboxgl.Popup({
-        closeButton: true,
-        closeOnClick: true,
-    })
-
     map.on('mouseenter', 'unclustered-point', function (e) {
         map.getCanvas().style.cursor = 'pointer'
 
@@ -201,15 +196,25 @@ map.on('load', function () {
                         A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
                         around the village.
                     </p>
+
+                    <div class="popup-slider">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
             `
+
             var dom = new DOMParser().parseFromString(htmlString, "text/html")
             
             document.body.appendChild(dom.body)
-            // largePopup
-            //     .setLngLat(map.getCenter())
-            //     .setDOMContent(dom.body)
-            //     .addTo(map)
+
+            var slider = tns({
+                container: '.popup-slider',
+                items: 1,
+                arrowKeys: true,
+                mouseDrag: true
+            })
         })
 
         newWindowOpener.addEventListener("mouseover", function () {
