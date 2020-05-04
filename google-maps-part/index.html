@@ -239,6 +239,7 @@
                 
                 var htmlString = `
                     <div class="popup-container">
+                        <img src="https://img.icons8.com/metro/26/000000/external-link.png"/>
                         <h1>
                             Waterwell project
                         </h1>
@@ -252,7 +253,6 @@
                     </div>
                 `
                 var dom = new DOMParser().parseFromString(htmlString, "text/html")
-                console.log(dom)
 
                 popup
                     .setLngLat(coordinates)
