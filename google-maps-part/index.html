@@ -248,10 +248,11 @@
                     </div>
                 `
                 var dom = new DOMParser().parseFromString(htmlString, "text/html")
+                console.log(dom)
 
                 popup
                     .setLngLat(coordinates)
-                    .setDOMContent(dom)
+                    .setDOMContent(dom.body)
                     .addTo(map)
             })
             // map.on('mouseleave', 'unclustered-point', function () {
