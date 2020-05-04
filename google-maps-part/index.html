@@ -232,25 +232,27 @@
                 console.log(features)
                 var pointTime = features[0].properties.date
                 var coordinates = features[0].geometry.coordinates.slice()
+                
+                var htmlString = `
+                    <h1>
+                        Waterwell project
+                    </h1>
+                    <span>
+                        
+                    </span>
+                    <h3>#waterwell</h3>
+                    <p>
+                        Lawksawk, Myanmar
+
+                        A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
+                        around the village.
+                    </p>
+                `
+                var dom = new DOMParser().parseFromString(htmlString, "text/xml")
 
                 popup
                     .setLngLat(coordinates)
-                    //.setHTML(pointTime)
-                    .setHTML(`
-                    <html>
-                       <head>   
-                            <style>
-                                p{
-                                    color: black;
-                                }
-                            </style>                
-                        </head>
-                        <body>
-                            <h1>Hey man</h1>
-                            <p>this is some text about a village that we are helping</p>
-                        <body>
-                    </html>
-                    `)
+                    .setDOMContent(dom)
                     .addTo(map)
             })
             // map.on('mouseleave', 'unclustered-point', function () {
