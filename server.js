@@ -20,6 +20,8 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
+app.use(express.static("google-maps-part"))
+
 app.get("/", function(req, res){
   res.sendFile(path.join(__dirname + "/google-maps-part/index.html"))
 })
