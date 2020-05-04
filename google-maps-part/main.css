@@ -68,12 +68,13 @@ html, body, #map {
 }
 
 .popup-slider{
-    width: 80%;
-    height: 200px;
+    height: 300px;
 }
 .popup-slider div{
     background-image: url("./onepunch.png");
     background-position: center;
     background-size: contain;
     height: 100%;
+    width: 100%;
+    border-radius: 18px;
 }
