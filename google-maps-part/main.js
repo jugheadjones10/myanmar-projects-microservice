@@ -214,11 +214,12 @@ map.on('load', function () {
                 items: 1,
                 mouseDrag: true,
                 autoplay: true,
-                // gutter: 30,
-                // controlsPosition: "bottom",
+                axis: "horizontal",
+                gutter: 30,
+                controlsPosition: "bottom",
                 prevButton: "<",
                 nextButton: ">",
-                // navPosition: "bottom"
+                navPosition: "bottom"
             })
         })
 
