@@ -51,6 +51,8 @@ html, body, #map {
 }
 
 .popup-large{
+    position: absolute;
+    top: 0;
     width: 60%;
     height: 80%;
 }
