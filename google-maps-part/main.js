@@ -144,6 +144,11 @@ map.on('load', function () {
         closeOnClick: true,
     })
 
+    var largePopup = new mapboxgl.Popup({
+        closeButton: true,
+        closeOnClick: true,
+    })
+
     map.on('mouseenter', 'unclustered-point', function (e) {
         map.getCanvas().style.cursor = 'pointer'
 
@@ -198,7 +203,11 @@ map.on('load', function () {
                         </div>
                     `
             var dom = new DOMParser().parseFromString(htmlString, "text/html")
-            document.body.appendChild(dom.body)
+        
+            largePopup
+                .setLngLat([0, 0])
+                .setDOMContent(dom.body)
+                .addTo(map)
         })
 
         newWindowOpener.addEventListener("mouseover", function () {
