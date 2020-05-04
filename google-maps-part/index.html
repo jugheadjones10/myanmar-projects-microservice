@@ -234,19 +234,18 @@
                 var coordinates = features[0].geometry.coordinates.slice()
                 
                 var htmlString = `
-                    <h1>
-                        Waterwell project
-                    </h1>
-                    <span>
-                        
-                    </span>
-                    <h3>#waterwell</h3>
-                    <p>
-                        Lawksawk, Myanmar
+                    <div>
+                        <h1>
+                            Waterwell project
+                        </h1>
+                        <h3>#waterwell</h3>
+                        <p>
+                            Lawksawk, Myanmar
 
-                        A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
-                        around the village.
-                    </p>
+                            A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
+                            around the village.
+                        </p>
+                    </div>
                 `
                 var dom = new DOMParser().parseFromString(htmlString, "text/html")
 
