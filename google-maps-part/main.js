@@ -214,7 +214,7 @@ map.on('load', function () {
                 items: 1,
                 mouseDrag: true,
                 autoplay: true,
-                gutter: 30,
+                // gutter: 30,
                 // controlsPosition: "bottom",
                 prevButton: "<",
                 nextButton: ">",
