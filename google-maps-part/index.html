@@ -240,6 +240,7 @@
                 closeButton: true,
                 closeOnClick: true,
             })
+
             map.on('mouseenter', 'unclustered-point', function (e) {
                 map.getCanvas().style.cursor = 'pointer'
 
@@ -274,6 +275,7 @@
                     .addTo(map)
 
                 var newWindowOpener = document.getElementById("popup-opener")
+                console.log(newWindowOpener)
                 newWindowOpener.addEventListener("onclick", function () {
                     var htmlString = `
                         <div class="popup-large">
