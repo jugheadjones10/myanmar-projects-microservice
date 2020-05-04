@@ -206,7 +206,7 @@ map.on('load', function () {
             var dom = new DOMParser().parseFromString(htmlString, "text/html")
         
             largePopup
-                .setLngLat([0, 0])
+                .setLngLat(map.getCenter())
                 .setDOMContent(dom.body)
                 .addTo(map)
         })
