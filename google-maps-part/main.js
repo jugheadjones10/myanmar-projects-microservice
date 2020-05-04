@@ -204,11 +204,12 @@ map.on('load', function () {
                 </div>
             `
             var dom = new DOMParser().parseFromString(htmlString, "text/html")
-        
-            largePopup
-                .setLngLat(map.getCenter())
-                .setDOMContent(dom.body)
-                .addTo(map)
+            
+            document.body.appendChild(dom.body)
+            // largePopup
+            //     .setLngLat(map.getCenter())
+            //     .setDOMContent(dom.body)
+            //     .addTo(map)
         })
 
         newWindowOpener.addEventListener("mouseover", function () {
