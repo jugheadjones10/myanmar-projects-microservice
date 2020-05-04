@@ -272,41 +272,39 @@
                     .setLngLat(coordinates)
                     .setDOMContent(dom.body)
                     .addTo(map)
+
+                var newWindowOpener = document.getElementById("popup-opener")
+                newWindowOpener.addEventListener("onclick", function () {
+                    var htmlString = `
+                        <div class="popup-large">
+                            <h1>
+                                Waterwell project
+                            </h1>
+                            <h3>#waterwell</h3>
+                            <p>
+                                Lawksawk, Myanmar<br/>
+
+                                A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
+                                around the village.
+                            </p>
+                        </div>
+                    `
+                    var dom = new DOMParser().parseFromString(htmlString, "text/html")
+                    document.body.appendChild(dom.body)
+                })
+
+                newWindowOpener.addEventListener("onmouseover", function () {
+                    document.getElementById("popup-opener").src = "https://img.icons8.com/metro/18/808080/external-link.png"
+                })
+
+                newWindowOpener.addEventListener("onmouseleave", function () {
+                    document.getElementById("popup-opener").src = "https://img.icons8.com/metro/18/000000/external-link.png"
+                })
             })
             // map.on('mouseleave', 'unclustered-point', function () {
             //     map.getCanvas().style.cursor = '';
             //     popup.remove()
             // })
-            
-            var newWindowOpener = document.getElementById("popup-opener")
-
-            newWindowOpener.addEventListener("onclick", function(){
-                  var htmlString = `
-                    <div class="popup-large">
-                        <h1>
-                            Waterwell project
-                        </h1>
-                        <h3>#waterwell</h3>
-                        <p>
-                            Lawksawk, Myanmar<br/>
-
-                            A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
-                            around the village.
-                        </p>
-                    </div>
-                `
-                var dom = new DOMParser().parseFromString(htmlString, "text/html")
-                
-                document.body.appendChild(dom.body)
-            })
-
-            newWindowOpener.addEventListener("onmouseover", function(){
-                document.getElementById("popup-opener").src = "https://img.icons8.com/metro/18/808080/external-link.png"
-            })
-
-            newWindowOpener.addEventListener("onmouseleave", function () {
-                document.getElementById("popup-opener").src = "https://img.icons8.com/metro/18/000000/external-link.png"
-            })
 
             map.on('mouseenter', 'clusters', function () {
                 map.getCanvas().style.cursor = 'pointer';
