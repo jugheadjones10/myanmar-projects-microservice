@@ -215,10 +215,10 @@ map.on('load', function () {
                 mouseDrag: true,
                 autoplay: true,
                 gutter: 30,
-                controlsPosition: "bottom",
+                // controlsPosition: "bottom",
                 prevButton: "<",
                 nextButton: ">",
-                navPosition: "bottom"
+                // navPosition: "bottom"
             })
         })
 
