@@ -213,7 +213,6 @@ map.on('load', function () {
                 container: '.popup-slider',
                 items: 1,
                 mouseDrag: true,
-                autoWidth: true,
                 autoplay: true
             })
         })
