@@ -213,13 +213,12 @@ map.on('load', function () {
                 container: '.popup-slider',
                 items: 1,
                 mouseDrag: true,
-                // autoplay: true,
+                controlsText: ["<", ">"],
+                autoplay: true,
                 // axis: "horizontal",
                 // gutter: 30,
-                // controlsPosition: "bottom",
-                // prevButton: "<",
-                // nextButton: ">",
-                // navPosition: "bottom"
+                //controlsPosition: "bottom",
+                navPosition: "bottom"
             })
         })
 
