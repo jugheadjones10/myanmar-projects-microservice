@@ -9,7 +9,6 @@ git commit -m "made changes"
 # push to git remote repository
 git push heroku master
 
-git push
 ###########################
 echo Press Enter...
 read
