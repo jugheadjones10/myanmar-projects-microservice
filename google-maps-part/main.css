@@ -66,3 +66,11 @@ html, body, #map {
 .popup-large h1, .popup-large h3{
     margin: 0px;
 }
+
+.popup-slider div{
+    background-image: url("./onepunch.png");
+    background-position: center;
+    background-size: contain;
+    width: 50%;
+    height: 80%;
+}
