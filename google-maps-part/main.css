@@ -1,0 +1,56 @@
+html, body, #map {
+    height: 100%;
+    width: 100%;
+
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+#info {
+    display: block;
+    position: absolute;
+    top: 0;
+    margin: 0px auto;
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #222;
+    background: #fff;
+    z-index: 10;
+}
+
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+.popup-container:hover{
+    /* background-color: ghostwhite; */
+}
+
+.popup-container h1{
+    display: inline;
+}
+
+#popup-opener{
+    display: inline;
+    padding-right: 10px;
+}
+
+.popup-large{
+    width: 60%;
+    height: 80%;
+}
