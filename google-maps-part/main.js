@@ -212,7 +212,9 @@ map.on('load', function () {
             var slider = tns({
                 container: '.popup-slider',
                 items: 1,
-                mouseDrag: true
+                mouseDrag: true,
+                autoWidth: true,
+                autoplay: true
             })
         })
 

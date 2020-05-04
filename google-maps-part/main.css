@@ -75,4 +75,5 @@ html, body, #map {
     background-image: url("./onepunch.png");
     background-position: center;
     background-size: contain;
+    height: 100%;
 }
