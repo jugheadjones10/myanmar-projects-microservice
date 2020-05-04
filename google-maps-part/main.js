@@ -188,6 +188,7 @@ map.on('load', function () {
         console.log(newWindowOpener.src)
 
         newWindowOpener.addEventListener("click", function () {
+            console.log("ive been clicked")
             var htmlString = `
                         <div class="popup-large">
                             <h1>
