@@ -189,26 +189,26 @@ map.on('load', function () {
 
         newWindowOpener.addEventListener("click", function () {
             console.log("ive been clicked")
-            var htmlString = `
-                        <div class="popup-large">
-                            <h1>
-                                Waterwell project
-                            </h1>
-                            <h3>#waterwell</h3>
-                            <p>
-                                Lawksawk, Myanmar<br/>
+            // var htmlString = `
+            //             <div class="popup-large">
+            //                 <h1>
+            //                     Waterwell project
+            //                 </h1>
+            //                 <h3>#waterwell</h3>
+            //                 <p>
+            //                     Lawksawk, Myanmar<br/>
 
-                                A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
-                                around the village.
-                            </p>
-                        </div>
-                    `
-            var dom = new DOMParser().parseFromString(htmlString, "text/html")
+            //                     A waterwell was installed in this village on 15th June, 2020. It is the only source of water in a 8km radius
+            //                     around the village.
+            //                 </p>
+            //             </div>
+            //         `
+            // var dom = new DOMParser().parseFromString(htmlString, "text/html")
         
-            largePopup
-                .setLngLat([0, 0])
-                .setDOMContent(dom.body)
-                .addTo(map)
+            // largePopup
+            //     .setLngLat([0, 0])
+            //     .setDOMContent(dom.body)
+            //     .addTo(map)
         })
 
         newWindowOpener.addEventListener("mouseover", function () {
