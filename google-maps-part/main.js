@@ -189,6 +189,7 @@ map.on('load', function () {
                     <h1>
                         Waterwell project
                     </h1>
+                    <img src="shapes-and-symbols.png"/>
                     <h3>#waterwell</h3>
                     <p>
                         Lawksawk, Myanmar<br/>
