@@ -216,6 +216,7 @@ map.on('load', function () {
                 mouseDrag: true,
                 controlsText: ["<", ">"],
                 autoplay: true,
+                autoplayButton: false,
                 gutter: 30,
                 controls: false,
                 nav: false,
