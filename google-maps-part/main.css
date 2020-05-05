@@ -65,6 +65,14 @@ html, body, #map {
 
 .popup-large h1, .popup-large h3{
     margin: 0px;
+    display: inline-block;
+}
+
+.popup-large img{
+    width: 15px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
 }
 
 .popup-slider{
