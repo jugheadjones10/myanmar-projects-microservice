@@ -216,9 +216,9 @@ map.on('load', function () {
                 mouseDrag: true,
                 controlsText: ["<", ">"],
                 autoplay: true,
-                // axis: "horizontal",
-                // gutter: 30,
-                //controlsPosition: "bottom",
+                gutter: 30,
+                controls: false,
+                nav: false,
                 navPosition: "bottom"
             })
 
