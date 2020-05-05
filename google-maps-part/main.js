@@ -189,7 +189,7 @@ map.on('load', function () {
                     <h1>
                         Waterwell project
                     </h1>
-                    <img src="shapes-and-symbols.png"/>
+                    <img id="exit" src="shapes-and-symbols.png"/>
                     <h3>#waterwell</h3>
                     <p>
                         Lawksawk, Myanmar<br/>
@@ -220,6 +220,11 @@ map.on('load', function () {
                 // gutter: 30,
                 //controlsPosition: "bottom",
                 navPosition: "bottom"
+            })
+
+            document.getElementById("exit").addEventListener("click", function(){
+                var element = document.getElementsByClassName("popup-large")[0];
+                element.parentNode.removeChild(element);
             })
         })
 
