@@ -41,7 +41,7 @@ map.on('load', function () {
     map.addSource('earthquakes', {
         type: 'geojson',
         data: "https://myanmar-map.herokuapp.com/projects/geojson",
-        //'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
+        //'https:// .mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
         cluster: true,
         clusterMaxZoom: 14, // Max zoom to cluster points on
         clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)

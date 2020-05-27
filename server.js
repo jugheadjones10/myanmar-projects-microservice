@@ -1,5 +1,7 @@
 var express = require("express")
 var path = require("path")  
+var cors = require('cors')
+
 var projectsRouter = require("./routes/projects")
 //Do I need to add /index.js for the above?
 
@@ -17,6 +19,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true })
 var db = mongoose.connection
 db.on("error", console.error.bind(console, "MongoDB connection error:"))
 
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
