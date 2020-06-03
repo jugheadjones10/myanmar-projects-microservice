@@ -1,0 +1,12 @@
+.cat-chip{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+
+    display: inline-block;    
+    background-color: #C6D69B;
+    border-radius: 4px;
+    font-size: 10px;
+}

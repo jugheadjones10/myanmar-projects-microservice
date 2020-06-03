@@ -1,0 +1,54 @@
+.progress-card{
+    background-color: var(--bg-positive-color);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bar and filler and percentage container */
+.progress-top-container{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Bar and filler */
+.progress-bar{  
+    margin-bottom: 5px;
+    width: 85%;
+    height: 17px;
+    border-radius: 4px;
+    background-color: var(--bg-grey-color);
+}
+
+.progress-filler{
+    width: 50%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: var(--dark-green-color);
+}
+
+/* Progress percentage */
+.progress-percent{
+    margin-left: auto;
+    color: var(--dark-green-color);
+}
+
+/* Progress fraction */
+.progress-fraction{
+    font-size: 14px;
+}
+
+.progress-fraction > div{
+    display: inline-block;
+}
+
+.progress-fraction > :nth-child(1){
+    color: var(--dark-green-color);
+}
+
+.progress-fraction > :nth-child(2){
+    color: #C1C1C1;
+}

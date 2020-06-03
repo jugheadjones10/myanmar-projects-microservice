@@ -1,0 +1,16 @@
+.top-bar{
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    
+    box-sizing: border-box;
+    height: 54px;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+}
+
+.donate-icon{
+    margin-right: 32px;
+    margin-left: auto;
+}

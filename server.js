@@ -19,14 +19,15 @@ mongoose.connect(mongoDB, { useNewUrlParser: true })
 var db = mongoose.connection
 db.on("error", console.error.bind(console, "MongoDB connection error:"))
 
+//Cors allows webpack dev server at localhost:8080 to access my myanmar map API
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(express.static("google-maps-part"))
+app.use(express.static("classic"))
 
 app.get("/", function(req, res){
-  res.sendFile(path.join(__dirname + "/google-maps-part/index.html"))
+  res.sendFile(path.join(__dirname + "/google-maps-part/src/app.js"))
 })
 
 app.use("/projects", projectsRouter)

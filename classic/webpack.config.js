@@ -5,7 +5,7 @@ module.exports = {
   mode: 'development',
 
   entry: {
-    app: './app.js'
+    app: './src/app.js'
   },
 
   devtool: 'source-map',
@@ -24,6 +24,21 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
       }
     ]
   },

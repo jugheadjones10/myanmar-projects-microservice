@@ -1,0 +1,13 @@
+.side-panel{
+    width: 350px;
+    height: 100vh;
+    background-color: #EEEEEE;
+}
+
+.content{
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: calc(100% - 231px);
+    overflow-y: auto;
+}

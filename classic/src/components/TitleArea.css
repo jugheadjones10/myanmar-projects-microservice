@@ -1,0 +1,22 @@
+.title-area{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 25px;
+    padding-left: 25px;
+
+    box-sizing: border-box;
+    height: 98px;
+    background-color: white;
+}
+
+.title-area h1{
+    font-size: 24px;
+    height: 28px;
+    margin-bottom: 8px;
+}
+
+.chip-holder{
+
+}
+
+

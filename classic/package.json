@@ -1,18 +1,31 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --progress --hot --open"
+    "start": "webpack-dev-server --progress --hot --open",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
-    "react-map-gl": "^5.1.0"
+    "react-map-gl": "^5.1.0",
+    "react-redux": "^7.2.0",
+    "redux": "^4.0.5",
+    "reselect": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/react": "^5.3.19",
     "babel-loader": "^8.0.0",
+    "css-loader": "^3.5.3",
+    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^3.0.7",
+    "style-loader": "^1.2.1",
     "webpack": "^4.20.0",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.11.0"

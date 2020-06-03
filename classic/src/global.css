@@ -1,0 +1,21 @@
+/* 
+Some CSS standards for myself:
+1. Margins are set from top to bottom
+
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+  --dark-green-color: #279453;
+  --bg-grey-color: #EEEEEE;
+  --bg-positive-color: white;
+}
+
+h1{
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+div{
+    font-family: 'Roboto', sans-serif;
+}
