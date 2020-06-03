@@ -113,6 +113,7 @@ document.body.style.margin = 0;
 render(
   <Provider store={store}>
     <Root />
-  </Provider>, 
-  document.body.appendChild(document.createElement('div'))
+  </Provider>,
+  document.getElementById("root") 
+  // document.body.appendChild(document.createElement('div'))
 );
