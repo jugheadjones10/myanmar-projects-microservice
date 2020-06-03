@@ -114,6 +114,6 @@ render(
   <Provider store={store}>
     <Root />
   </Provider>,
-  document.getElementById("root") 
-  // document.body.appendChild(document.createElement('div'))
+  // document.getElementById("root") 
+  document.body.appendChild(document.createElement('div'))
 );

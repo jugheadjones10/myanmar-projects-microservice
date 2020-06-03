@@ -49166,8 +49166,8 @@ var Root = /*#__PURE__*/function (_Component) {
 document.body.style.margin = 0;
 Object(react_dom__WEBPACK_IMPORTED_MODULE_1__["render"])( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](react_redux__WEBPACK_IMPORTED_MODULE_2__["Provider"], {
   store: store
-}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Root, null)), document.getElementById("root") // document.body.appendChild(document.createElement('div'))
-);
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](Root, null)), // document.getElementById("root") 
+document.body.appendChild(document.createElement('div')));
 
 /***/ }),
 
