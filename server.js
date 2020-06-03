@@ -27,7 +27,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.static("classic"))
 
 app.get("/", function(req, res){
-  res.sendFile(path.join(__dirname + "/google-maps-part/src/app.js"))
+  res.sendFile(path.join(__dirname + "/classic/src/app.js"))
 })
 
 app.use("/projects", projectsRouter)
