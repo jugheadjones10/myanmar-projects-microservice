@@ -24,10 +24,10 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-app.use(express.static("classic"))
+app.use(express.static("classic/build"))
 
 app.get("/", function(req, res){
-  res.sendFile(path.join(__dirname + "/classic/src/index.html"))
+  res.sendFile(path.join(__dirname + "/classic/build/index.html"))
 })
 
 app.use("/projects", projectsRouter)
