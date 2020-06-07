@@ -4,13 +4,21 @@ var mongoose = require("mongoose")
 var Schema = mongoose.Schema
 
 var ProjectSchema = new Schema({
-  location: Array,
-  date: String,
-  type: {
-    type: String,
-    enum: ["Waterwell", "School", "Rice"]
-  }
+  _id: Schema.Types.ObjectId,
+  fullName: String,
+  category: String, 
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  donationTarget: Number,
+  donationCurrent: Number,
+  locations: [{
+    lat: Schema.Types.Decimal128,
+    long: Schema.Types.Decimal128
+  }],
+  updates: [String]
 })
 
 //Export function to create "SomeModel" model class
-module.exports = mongoose.model("ProjectModel", ProjectSchema)
+module.exports.Project = mongoose.model("Project", ProjectSchema)
