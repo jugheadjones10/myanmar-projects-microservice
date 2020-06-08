@@ -24,7 +24,8 @@ exports.read_geojson_projects = function (req, res) {
         createdAt: element.createdAt,
         fullName: element.fullName,
         long: element.locations[0].long,
-        lat: element.locations[0].lat
+        lat: element.locations[0].lat,
+        category: element.category
         // long: parseInt(element.location[0], 10),
         // lat: parseInt(element.location[1], 10)
       })

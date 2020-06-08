@@ -6,6 +6,7 @@ import { createStore } from 'redux'
 import MapGL, { Source, Layer, FullscreenControl } from 'react-map-gl'
 
 import SidePanelContainer from "./components/SidePanelContainer"
+import Pins from "./Pins"
 
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './layers'
 import reducer from './reducers'
@@ -25,13 +26,16 @@ class Root extends Component {
         zoom: 5,
         bearing: 0,
         pitch: 0
-      }
+      },
+      hoveredFeature: null
     }
 
     this._sourceRef = React.createRef()
     this._mapRef = React.createRef()
     this._onViewportChange = this._onViewportChange.bind(this)
     this._onClick = this._onClick.bind(this)
+    this._onHover = this._onHover.bind(this)
+    this._renderTooltip = this._renderTooltip.bind(this)
   }
 
 
@@ -63,6 +67,34 @@ class Root extends Component {
     })
   }
 
+  _onHover(event){
+    const {
+      features,
+      srcEvent: { offsetX, offsetY }
+    } = event
+
+    console.log(event)
+      // , x: offsetX, y: offsetY 
+    const hoveredFeature = features && features[0];
+
+    this.setState({ hoveredFeature, x: offsetX, y: offsetY })
+  }
+
+  _renderTooltip() {
+    const { hoveredFeature, x, y } = this.state;
+
+    return (
+      hoveredFeature && (
+        <div className="tooltip" style={{ left: x, top: y }}>
+          dfes
+          <div>Project Name: {hoveredFeature.properties.fullName}</div>
+          <div>Project Category: {hoveredFeature.properties.category}</div>
+        </div>
+      )
+    )
+  }
+
+
   render() {
     return (
       <div style={{
@@ -82,8 +114,9 @@ class Root extends Component {
           mapStyle="mapbox://styles/mapbox/dark-v9"
           onViewportChange={this._onViewportChange}
           mapboxApiAccessToken={MAPBOX_TOKEN}
-          interactiveLayerIds={[clusterLayer.id]}
+          interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
           onClick={this._onClick}
+          onHover={this._onHover}
           ref={this._mapRef}
         >
           <Source
@@ -98,6 +131,16 @@ class Root extends Component {
             <Layer {...clusterCountLayer} />
             <Layer {...unclusteredPointLayer} />
           </Source>
+
+          {this._renderTooltip()}
+
+          {/* ***************************************** */}
+
+          {/* <Pins data={CITIES} onClick={this._onClickMarker} />
+
+          {this._renderPopup()} */}
+
+          {/* ***************************************** */}
 
           <div style={{ position: "absolute", right: 10, top: 10 }}>
             <FullscreenControl containerComponent={this.props.containerComponent} />
