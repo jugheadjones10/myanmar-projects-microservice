@@ -11,10 +11,10 @@ import { SHOW_MAIN } from '../constants/NavStates'
 
 import "./SidePanel.css"
 
-const SidePanel = ({ navState, actions }) => (
+const SidePanel = ({ navState, project, actions }) => (
   <div className="side-panel">
     <TopBar />
-    <TitleArea />
+    <TitleArea project={project}/>
 
     <div className="content">
       {

@@ -35,7 +35,10 @@ exports.read_geojson_projects = function (req, res) {
 }
 
 exports.read_project = function (req, res) {
-
+  Project.findById(req.params.id, function(err, project_instance){
+    if (err) console.log("There has been the following error: " + err)
+    res.send(JSON.stringify(project_instance))
+  })
 }
 
 exports.delete_project = function (req, res) {

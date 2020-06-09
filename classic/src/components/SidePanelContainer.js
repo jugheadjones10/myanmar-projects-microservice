@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux'
 import SidePanel from '../components/SidePanel'
 
 const mapStateToProps = state => ({
-    navState: state.navState
+    navState: state.navState,
+    project: state.projectState
 })
 
 const mapDispatchToProps = dispatch => ({

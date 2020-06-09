@@ -2,9 +2,11 @@ import * as React from 'react'
 import {Component} from 'react'
 import {render} from 'react-dom'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
 import MapGL, { Source, Layer, FullscreenControl } from 'react-map-gl'
+import thunk from 'redux-thunk';
 
+import setSidePanelProjectSuccess from './actions'
 import SidePanelContainer from "./components/SidePanelContainer"
 import Pins from "./Pins"
 
@@ -13,7 +15,7 @@ import reducer from './reducers'
 
 import "./global.css"
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk))
 const MAPBOX_TOKEN = "pk.eyJ1IjoianVnZ3k2OSIsImEiOiJja2FvbmQ0N3kwMG56MnFwdnN4N3NwYzA3In0.EmUzcyS3lwwFX3IOfWWg5g"
 
 class Root extends Component {
@@ -44,27 +46,31 @@ class Root extends Component {
   }
 
   _onClick (event) {
-    console.log("HEres the event!!!!!!!!!")
     console.log(event)
+    const {features} = event
 
-    const feature = event.features[0]
-    const clusterId = feature.properties.cluster_id
+    const clickedFeature = features && features[0]
+    if(clickedFeature){
+      store.dispatch(setSidePanelProjectSuccess(clickedFeature.properties._id))
+    }
+    // const feature = event.features[0]
+    // const clusterId = feature.properties.cluster_id
 
-    const mapboxSource = this._sourceRef.current.getSource()
+    // const mapboxSource = this._sourceRef.current.getSource()
 
-    mapboxSource.getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) {
-        return
-      }
+    // mapboxSource.getClusterExpansionZoom(clusterId, (err, zoom) => {
+    //   if (err) {
+    //     return
+    //   }
 
-      this._onViewportChange({
-        ...this.state.viewport,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom,
-        transitionDuration: 500
-      })
-    })
+    //   this._onViewportChange({
+    //     ...this.state.viewport,
+    //     longitude: feature.geometry.coordinates[0],
+    //     latitude: feature.geometry.coordinates[1],
+    //     zoom,
+    //     transitionDuration: 500
+    //   })
+    // })
   }
 
   _onHover(event){
@@ -73,8 +79,6 @@ class Root extends Component {
       srcEvent: { offsetX, offsetY }
     } = event
 
-    console.log(event)
-      // , x: offsetX, y: offsetY 
     const hoveredFeature = features && features[0];
 
     this.setState({ hoveredFeature, x: offsetX, y: offsetY })
@@ -86,7 +90,6 @@ class Root extends Component {
     return (
       hoveredFeature && (
         <div className="tooltip" style={{ left: x, top: y }}>
-          dfes
           <div>Project Name: {hoveredFeature.properties.fullName}</div>
           <div>Project Category: {hoveredFeature.properties.category}</div>
         </div>

@@ -1,6 +1,16 @@
 import * as types from '../constants/ActionTypes'
 
-export const setNavState = navState => ({type: types.SET_NAV_STATE, navState})
+export const setNavState = navState => ({ type: types.SET_NAV_STATE, navState })
+export const setSidePanelProject = projectId => (
+    function(dispatch){
+        fetch('https://myanmar-map.herokuapp.com/projects/' + projectId).then(
+            (project) => dispatch(setSidePanelProjectSuccess(project)),
+            (error) => console.log("There has been an error", error)
+        )
+    }
+)
+const setSidePanelProjectSuccess = project => ({ type: types.SET_SIDEPANEL_PROJECT_SUCCESS, project })
+
 // export const addTodo = text => ({ type: types.ADD_TODO, text })
 // export const deleteTodo = id => ({ type: types.DELETE_TODO, id })
 // export const editTodo = (id, text) => ({ type: types.EDIT_TODO, id, text })
