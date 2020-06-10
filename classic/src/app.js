@@ -38,21 +38,19 @@ class Root extends Component {
     this._onClick = this._onClick.bind(this)
     this._onHover = this._onHover.bind(this)
     this._renderTooltip = this._renderTooltip.bind(this)
+    
+    this.init = this.init.bind(this)
+    this.init()
   }
 
-  componentDidMount(){
-    console.log("Ive been called")
+  init(){
+    // if (this.loadingPromise) {
+    //   return this.loadingPromise;
+    // }
 
-    window.fbAsyncInit = () => {
-      console.log("Ive been FUCKING CALLED BY FACEBOOK")
-      window.FB.init({
-        version: `v7.0`,
-        appId: '1051667055227414',
-        xfbml: true,
-        cookie: true,
-      })
-
-      window.FB.api(
+    // this.loadingPromise = new Promise((resolve) => {
+    function callback(fb){
+      fb.api(
         '/375770749282695_1016928725166891',
         'GET',
         { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
@@ -62,52 +60,70 @@ class Root extends Component {
       )
     }
 
-    ((d, s, id) => {
-      const element = d.getElementsByTagName(s)[0]
-      const fjs = element
-      let js = element
-      if (d.getElementById(id)) { return }
-      js = d.createElement(s); js.id = id
-      js.src = `https://connect.facebook.net/en_US/sdk.js`
-      console.log(js)
-      fjs.parentNode.insertBefore(js, fjs)
-    })(document, 'script', 'facebook-jssdk')
+      window.fbAsyncInit = () => {
+        console.log("FB CALLED ME")
+        window.FB.init({
+          appId: "1051667055227414",
+          version: "v7.0",
+          cookie: true,
+          status: true,
+          xfbml: true
+        })
 
-    // window.fbAsyncInit = function () {
-    //   if(window.FB){
-    //     window.FB.init({
-    //       appId: '1051667055227414',
-    //       cookie: true,
-    //       xfbml: true,
-    //       version: 'v7.0'
-    //     })
-    //     console.log(FB)
-        
+        callback(window.FB)
+      }
 
-    //     window.FB.api(
-    //       '/375770749282695_1016928725166891',
-    //       'GET',
-    //       { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
-    //       function (response) {
-    //         console.log(response)
-    //       }
-    //     )
-    //   }
-    // }.bind(this)  
+      // if (window.document.getElementById('facebook-jssdk')) {
+      //   return resolve(window.FB)
+      // }
 
-    // const script = document.createElement("script")
-    // script.src = "https://connect.facebook.net/en_US/sdk.js"
-    // script.async = true;
-    // document.body.appendChild(script);
+      const js = window.document.createElement('script')
+      js.id = 'facebook-jssdk'
+      js.async = true
+      js.defer = true
+      js.src = "https://connect.facebook.net/en_US/sdk.js"
 
-    // (function (d, s, id) {
-    //   var js, fjs = d.getElementsByTagName(s)[0];
-    //   if (d.getElementById(id)) return;
-    //   js = d.createElement(s); js.id = id;
-    //   js.src = "https://connect.facebook.net/en_US/sdk.js";
-    //   fjs.parentNode.insertBefore(js, fjs);
-    // }(document, 'script', 'facebook-jssdk'))
+      window.document.body.appendChild(js)
+    // })
+
+    // return this.loadingPromise
   }
+
+  // async process(method, before = [], after = []) {
+  //   const fb = await this.init();
+
+  //   fb.api(
+  //     '/375770749282695_1016928725166891',
+  //     'GET',
+  //     { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
+  //     function (response) {
+  //       console.log(response)
+  //     }
+  //   )
+    // return new Promise((resolve, reject) => {
+    //   fb[method](...before, (response) => {
+    //     if (!response) {
+    //       if (method === 'ui') return;
+    //       reject(new Error('Response is undefined'));
+    //     } else if (response.error) {
+    //       const { code, type, message } = response.error;
+
+    //       const error = new Error(message);
+    //       error.code = code;
+    //       error.type = type;
+
+    //       reject(error);
+    //     } else {
+    //       resolve(response);
+    //     }
+    //   }, ...after);
+    // });
+  // }
+
+  // componentDidMount(){
+  //   this.process()
+  // }
+
 
 
   _onViewportChange (viewport) { 
