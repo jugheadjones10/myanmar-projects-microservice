@@ -40,6 +40,75 @@ class Root extends Component {
     this._renderTooltip = this._renderTooltip.bind(this)
   }
 
+  componentDidMount(){
+    console.log("Ive been called")
+
+    window.fbAsyncInit = () => {
+      console.log("Ive been FUCKING CALLED BY FACEBOOK")
+      window.FB.init({
+        version: `v7.0`,
+        appId: '1051667055227414',
+        xfbml: true,
+        cookie: true,
+      })
+
+      window.FB.api(
+        '/375770749282695_1016928725166891',
+        'GET',
+        { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
+        function (response) {
+          console.log(response)
+        }
+      )
+    }
+
+    ((d, s, id) => {
+      const element = d.getElementsByTagName(s)[0]
+      const fjs = element
+      let js = element
+      if (d.getElementById(id)) { return }
+      js = d.createElement(s); js.id = id
+      js.src = `https://connect.facebook.net/en_US/sdk.js`
+      console.log(js)
+      fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
+
+    // window.fbAsyncInit = function () {
+    //   if(window.FB){
+    //     window.FB.init({
+    //       appId: '1051667055227414',
+    //       cookie: true,
+    //       xfbml: true,
+    //       version: 'v7.0'
+    //     })
+    //     console.log(FB)
+        
+
+    //     window.FB.api(
+    //       '/375770749282695_1016928725166891',
+    //       'GET',
+    //       { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
+    //       function (response) {
+    //         console.log(response)
+    //       }
+    //     )
+    //   }
+    // }.bind(this)  
+
+    // const script = document.createElement("script")
+    // script.src = "https://connect.facebook.net/en_US/sdk.js"
+    // script.async = true;
+    // document.body.appendChild(script);
+
+    // (function (d, s, id) {
+    //   var js, fjs = d.getElementsByTagName(s)[0];
+    //   if (d.getElementById(id)) return;
+    //   js = d.createElement(s); js.id = id;
+    //   js.src = "https://connect.facebook.net/en_US/sdk.js";
+    //   fjs.parentNode.insertBefore(js, fjs);
+    // }(document, 'script', 'facebook-jssdk'))
+  }
+
 
   _onViewportChange (viewport) { 
     this.setState({ viewport })
@@ -104,7 +173,7 @@ class Root extends Component {
         flexDirection: "row",
         overflowY: "unset"
       }}>
-
+      
         <SidePanelContainer/>
 
         <MapGL

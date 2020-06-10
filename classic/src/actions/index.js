@@ -10,11 +10,23 @@ export const setSidePanelProject = projectId => (
             (error) => console.log("There has been an error", error)
         ).then(project => {
             console.log(project)
+
             dispatch(setSidePanelProjectSuccess(project))
+
+            window.FB.api(
+                '/375770749282695_1016928725166891',
+                'GET',
+                { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
+                function (response) {
+                    console.log(response)
+                }
+            )
         })
     }
 )
-const setSidePanelProjectSuccess = project => ({ type: types.SET_SIDEPANEL_PROJECT_SUCCESS, project })
+const setSidePanelProjectSuccess = project => (
+    { type: types.SET_SIDEPANEL_PROJECT_SUCCESS, project }
+)
 
 // export const addTodo = text => ({ type: types.ADD_TODO, text })
 // export const deleteTodo = id => ({ type: types.DELETE_TODO, id })
