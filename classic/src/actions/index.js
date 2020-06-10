@@ -4,9 +4,14 @@ export const setNavState = navState => ({ type: types.SET_NAV_STATE, navState })
 export const setSidePanelProject = projectId => (
     function(dispatch){
         fetch('https://myanmar-map.herokuapp.com/projects/' + projectId).then(
-            (project) => dispatch(setSidePanelProjectSuccess(project)),
+            (res) => {
+                return res.json()
+            },
             (error) => console.log("There has been an error", error)
-        )
+        ).then(project => {
+            console.log(project)
+            dispatch(setSidePanelProjectSuccess(project))
+        })
     }
 )
 const setSidePanelProjectSuccess = project => ({ type: types.SET_SIDEPANEL_PROJECT_SUCCESS, project })

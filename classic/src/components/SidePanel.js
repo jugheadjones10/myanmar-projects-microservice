@@ -6,6 +6,7 @@ import TitleArea from "./TitleArea"
 import ProgressCard from "./ProgressCard"
 import ContentCard from "./ContentCard"
 import BottomNav from "./BottomNav"
+import UpdatesTab from "./UpdatesTab"
 
 import { SHOW_MAIN } from '../constants/NavStates'
 
@@ -14,7 +15,7 @@ import "./SidePanel.css"
 const SidePanel = ({ navState, project, actions }) => (
   <div className="side-panel">
     <TopBar />
-    <TitleArea project={project}/>
+    <TitleArea fullName={ project.fullName }/>
 
     <div className="content">
       {
@@ -25,11 +26,7 @@ const SidePanel = ({ navState, project, actions }) => (
             <ContentCard />
           </>
         : 
-          <>
-            <ContentCard />
-            <ContentCard />
-            <ContentCard />
-          </>
+          <UpdatesTab updates={ project.updates }/>
       }   
     </div>
     <BottomNav onSetNavState={actions.setNavState} navState={navState}/>

@@ -2,12 +2,14 @@
     width: 350px;
     height: 100vh;
     background-color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
 }
 
 .content{
     padding-top: 25px;
     padding-left: 25px;
     padding-right: 25px;
-    height: calc(100% - 231px);
+    flex-grow: 1;
     overflow-y: auto;
 }

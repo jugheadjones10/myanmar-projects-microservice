@@ -1,12 +1,12 @@
 import * as React from 'react'
-import {Component} from 'react'
-import {render} from 'react-dom'
+import { Component } from 'react'
+import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import MapGL, { Source, Layer, FullscreenControl } from 'react-map-gl'
 import thunk from 'redux-thunk';
 
-import setSidePanelProjectSuccess from './actions'
+import { setSidePanelProject } from './actions'
 import SidePanelContainer from "./components/SidePanelContainer"
 import Pins from "./Pins"
 
@@ -47,11 +47,10 @@ class Root extends Component {
 
   _onClick (event) {
     console.log(event)
-    const {features} = event
-
+    const { features } = event
     const clickedFeature = features && features[0]
     if(clickedFeature){
-      store.dispatch(setSidePanelProjectSuccess(clickedFeature.properties._id))
+      store.dispatch(setSidePanelProject(clickedFeature.properties._id))
     }
     // const feature = event.features[0]
     // const clusterId = feature.properties.cluster_id

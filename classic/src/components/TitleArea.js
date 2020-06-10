@@ -4,10 +4,10 @@ import "./TitleArea.css"
 
 import CatChip from "./CatChip"
 
-const TitleArea = ({ project }) => (
+const TitleArea = ({ fullName }) => (
     <div className="title-area">
         <h1>
-            {project.fullName}
+            {fullName}
         </h1>
         <div className="chip-holder">
             <CatChip color={"#C6D69B"}/>
