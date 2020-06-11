@@ -23,10 +23,10 @@ const SidePanel = ({ navState, project, actions }) => (
         ?
           <>
             <ProgressCard target={15600} current={13800} />
-            <ContentCard />
+            <ContentCard text={ project.description } src={ project.parsedUpdates[0].src }/>
           </>
         : 
-          <UpdatesTab updates={ project.updates }/>
+          <UpdatesTab updates={ project.parsedUpdates }/>
       }   
     </div>
     <BottomNav onSetNavState={actions.setNavState} navState={navState}/>

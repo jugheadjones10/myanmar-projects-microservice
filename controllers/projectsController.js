@@ -54,7 +54,8 @@ exports.create_project = function (req, res) {
     donationTarget: req.body.donTarget,
     donationCurrent: req.body.donNow,
     locations: req.body.locations,
-    updates: req.body.updates
+    updates: req.body.updates,
+    description: req.body.description
   }, 
   function (err, project_instance) {
     if (err) console.log("There has been the following error: " + err)

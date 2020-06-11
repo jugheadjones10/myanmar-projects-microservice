@@ -10,7 +10,7 @@
     height: 161px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
-    background-image: url(../images/dad.jpg);
+    /* background-image: url(../images/dad.jpg); */
     background-position: center;
     background-size: cover;
 }

@@ -9,10 +9,11 @@ import "./UpdatesTab.css"
 
 const UpdatesTab = ({ updates }) => (
     <div className="updates-tab">
-
-        <ContentCard />
-        <ContentCard />
-        <ContentCard />
+        {
+            updates.map(({text, src}) => (
+                <ContentCard text={ text } src={ src } key={ text }/>
+            ))
+        }
     </div>
 )
 

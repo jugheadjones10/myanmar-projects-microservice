@@ -17,7 +17,8 @@ var ProjectSchema = new Schema({
     lat: Schema.Types.Decimal128,
     long: Schema.Types.Decimal128
   }],
-  updates: [String]
+  updates: [String],
+  description: String
 })
 
 //Export function to create "SomeModel" model class

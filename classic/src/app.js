@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 
 import { setSidePanelProject } from './actions'
 import SidePanelContainer from "./components/SidePanelContainer"
-import Pins from "./Pins"
 
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './layers'
 import reducer from './reducers'
@@ -32,99 +31,19 @@ class Root extends Component {
       hoveredFeature: null
     }
 
+    fetch(`https://graph.facebook.com/375770749282695_1016928725166891?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAF5nE2pRZBOSFuH4u5qZCxAN5MtiTgZA2TEwQmhbP2WB8rqr5OagT2EBJKZCiHvlcLZAHBKs28JRhvYs4wZCBbNXC8RL1MZA946Ii17H2YdgOcFwbVuaHn8cGqLIz1YnqouZAosRolbT7ZAJY4Ou5MlZBGIuUkFy5758fxyNMz4kciCbOYpIgZA3n77Rt9ZCsketFwZDZD`)
+      .then(
+        (res) => res.json(),
+        (error) => console.log("There has been an error", error)
+      ).then(proj => console.log(proj))
+
     this._sourceRef = React.createRef()
     this._mapRef = React.createRef()
     this._onViewportChange = this._onViewportChange.bind(this)
     this._onClick = this._onClick.bind(this)
     this._onHover = this._onHover.bind(this)
     this._renderTooltip = this._renderTooltip.bind(this)
-    
-    this.init = this.init.bind(this)
-    this.init()
   }
-
-  init(){
-    // if (this.loadingPromise) {
-    //   return this.loadingPromise;
-    // }
-
-    // this.loadingPromise = new Promise((resolve) => {
-    function callback(fb){
-      fb.api(
-        '/375770749282695_1016928725166891',
-        'GET',
-        { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
-        function (response) {
-          console.log(response)
-        }
-      )
-    }
-
-      window.fbAsyncInit = () => {
-        console.log("FB CALLED ME")
-        window.FB.init({
-          appId: "1051667055227414",
-          version: "v7.0",
-          cookie: true,
-          status: true,
-          xfbml: true
-        })
-
-        callback(window.FB)
-      }
-
-      // if (window.document.getElementById('facebook-jssdk')) {
-      //   return resolve(window.FB)
-      // }
-
-      const js = window.document.createElement('script')
-      js.id = 'facebook-jssdk'
-      js.async = true
-      js.defer = true
-      js.src = "https://connect.facebook.net/en_US/sdk.js"
-
-      window.document.body.appendChild(js)
-    // })
-
-    // return this.loadingPromise
-  }
-
-  // async process(method, before = [], after = []) {
-  //   const fb = await this.init();
-
-  //   fb.api(
-  //     '/375770749282695_1016928725166891',
-  //     'GET',
-  //     { "fields": "full_picture,picture,attachments{description,media_type,unshimmed_url,subattachments},properties" },
-  //     function (response) {
-  //       console.log(response)
-  //     }
-  //   )
-    // return new Promise((resolve, reject) => {
-    //   fb[method](...before, (response) => {
-    //     if (!response) {
-    //       if (method === 'ui') return;
-    //       reject(new Error('Response is undefined'));
-    //     } else if (response.error) {
-    //       const { code, type, message } = response.error;
-
-    //       const error = new Error(message);
-    //       error.code = code;
-    //       error.type = type;
-
-    //       reject(error);
-    //     } else {
-    //       resolve(response);
-    //     }
-    //   }, ...after);
-    // });
-  // }
-
-  // componentDidMount(){
-  //   this.process()
-  // }
-
-
 
   _onViewportChange (viewport) { 
     this.setState({ viewport })
