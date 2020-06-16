@@ -11,10 +11,11 @@ import {SET_SIDEPANEL_PROJECT_SUCCESS, PARSE_PROJECT_UPDATES_SUCCESS} from "../c
 
 const initialState = {
     fullName: "GVH",
-    category: "GVH categories",
-    donationTarget: 1000,
-    donationCurrent: 1000,
-    description: " The Crown House is owned by Mrs. awd, and she takes care of a total of 20 children. She works as a farmer, using what profits she has left to provide for the needs of the children and to give them some joy in life.",
+    description: `
+        “Give a man a fish, to feed him for a day. Teach a man to fish,
+        and feed him for a lifetime” – Lao Tzu.
+
+        We strongly believe in bringing funds to places in need, not to be given to the people, but to be used to fund actual projects that will benefit the local community.`,
     locations: [{
         lat: 0,
         long: 0
@@ -22,8 +23,8 @@ const initialState = {
     updates: ["awd"],
     parsedUpdates: [
         {
-            text: "Bla bla ba",
-            src: "https://scontent.fsin1-1.fna.fbcdn.net/v/t15.5256-10/55900091_843508385984093_8618666742094233600_n.jpg?_nc_cat=104&_nc_sid=ad6a45&_nc_oc=AQljIuQ4pUN-UJdRhsF9nzV-TfN81MyubXajTfCUEUzWsvMenl634t2Xy0LqaI4SEgs&_nc_ht=scontent.fsin1-1.fna&oh=03ae31c092f6ab60b9aae45657558b9a&oe=5F083077"
+            text: "This is a map view of the projects we have done so far.",
+            src: "https://gvh.sg/wp-content/uploads/2018/01/GVH-Logo-main-200.webp"
         }
     ]
 }

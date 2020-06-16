@@ -15,14 +15,17 @@ import "./SidePanel.css"
 const SidePanel = ({ navState, project, actions }) => (
   <div className="side-panel">
     <TopBar />
-    <TitleArea fullName={ project.fullName }/>
+    <TitleArea fullName={ project.fullName } category={ project.category }/>
 
     <div className="content">
       {
         navState === SHOW_MAIN
         ?
           <>
-            <ProgressCard target={15600} current={13800} />
+            { 
+              project.donationCurrent &&
+              <ProgressCard target={ project.donationTarget } current={ project.donationCurrent } />
+            }
             <ContentCard text={ project.description } src={ project.parsedUpdates[0].src }/>
           </>
         : 

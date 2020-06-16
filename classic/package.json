@@ -6,6 +6,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "antd": "^4.3.3",
     "body-parser": "^1.19.0",
     "path": "^0.12.7",
     "prop-types": "^15.7.2",

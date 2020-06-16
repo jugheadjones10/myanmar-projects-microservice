@@ -18,4 +18,5 @@
 .content-text{
     padding: 10px;
     font-size: 13px;
+    word-break: break-word;
 }

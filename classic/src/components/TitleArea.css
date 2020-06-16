@@ -11,6 +11,8 @@
 .title-area h1{
     font-size: 24px;
     margin-bottom: 8px;
+    font-weight: 1000;
+    line-height: normal;
 }
 
 .chip-holder{

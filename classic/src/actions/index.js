@@ -12,27 +12,6 @@ export const setSidePanelProject = projectId => {
 
             dispatch(setSidePanelProjectSuccess(project))
             dispatch(parseProjectUpdates(project.updates))
-
-            // var postId = project.updates[0].substr(project.updates[0].lastIndexOf('/') + 1)
-            // return fetch(`https://graph.facebook.com/375770749282695_1016928725166891?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAEl8CrFJ0OhLM5DkL07mlUIFlpuPS3VtH6ltNdaPiPGD6rSvmbCfdfdx3dBwlr32pkEC8mefhpj6RfVzhGWXFw2zca4gPI6gjw3DlBSPBg62SUXXA91lfpQ4m29pBXOACKZA3nFyvTq7lBFLohFuBoxtZB0ns1iT0tEKamTTvafKEP9MHOVnanFJVipwZDZD`)
-              
-
-            // project.updates.forEach(update => {
-            //     var postId = update.substr(update.lastIndexOf('/') + 1)
-            //     console.log(postId)
-            //     // var postPromise = 
-            //     fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAEl8CrFJ0OhLM5DkL07mlUIFlpuPS3VtH6ltNdaPiPGD6rSvmbCfdfdx3dBwlr32pkEC8mefhpj6RfVzhGWXFw2zca4gPI6gjw3DlBSPBg62SUXXA91lfpQ4m29pBXOACKZA3nFyvTq7lBFLohFuBoxtZB0ns1iT0tEKamTTvafKEP9MHOVnanFJVipwZDZD`)
-            //         .then(
-            //             (res) => res.json(),
-            //             (error) => console.log("There has been an error", error)
-            //         ).then(ans => console.log(ans))
-            //     // postPromises.push(postPromise)
-            // })
-            
-            // Promise.all(postPromises).then(updates => {
-            //     console.log(updates)
-            //     // dispatch(setRetrieveUpdatesSuccess(updates))
-            // })
         })
     }
 }
@@ -44,7 +23,7 @@ const parseProjectUpdates = updates => {
         var postPromises = []
         updates.forEach(update => {
             var postId = update.substr(update.lastIndexOf('/') + 1)
-            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAPkOh2jIMTARPrNHY9e40wAFD7lk3loZCGDdzBgGHEm9Iw2eXUFeZBZBo2qHtXpo5KgWnqjX6h4dZAE2TqFHh0oqAOKguWZBmQDLJglxtKkAZCRyXwrZCCueXkPM4AKDxTKEFgDEiO8VTPKh4kPuZAgsLAoNmkvj9gwdmMD5456cURFwHGTE2t2vUQbEPZAWCdwZDZD`)
+            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAALnm32enfc3VDtgT1MdZCpaZBq5hUIcuKzZAml9oWa1AyYCXQzZB6n3pmuzOPckSUdTBZBoZAgCjLO6ZCxN3FBdpeh3plzTZBmRtQTp3EfgipRtKbXAl5tO4XfkyBBnOo5dPGTt07VXqMVqyZBNqrB9ZAGEWeVlbUUAZDZD`)
                 .then(
                     (res) => res.json(),
                     (error) => console.log("There has been an error", error)

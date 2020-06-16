@@ -12,6 +12,7 @@ import SidePanelContainer from "./components/SidePanelContainer"
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './layers'
 import reducer from './reducers'
 
+import 'antd/dist/antd.css'
 import "./global.css"
 
 const store = createStore(reducer, applyMiddleware(thunk))
@@ -30,12 +31,6 @@ class Root extends Component {
       },
       hoveredFeature: null
     }
-
-    fetch(`https://graph.facebook.com/375770749282695_1016928725166891?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAF5nE2pRZBOSFuH4u5qZCxAN5MtiTgZA2TEwQmhbP2WB8rqr5OagT2EBJKZCiHvlcLZAHBKs28JRhvYs4wZCBbNXC8RL1MZA946Ii17H2YdgOcFwbVuaHn8cGqLIz1YnqouZAosRolbT7ZAJY4Ou5MlZBGIuUkFy5758fxyNMz4kciCbOYpIgZA3n77Rt9ZCsketFwZDZD`)
-      .then(
-        (res) => res.json(),
-        (error) => console.log("There has been an error", error)
-      ).then(proj => console.log(proj))
 
     this._sourceRef = React.createRef()
     this._mapRef = React.createRef()
@@ -93,8 +88,8 @@ class Root extends Component {
     return (
       hoveredFeature && (
         <div className="tooltip" style={{ left: x, top: y }}>
-          <div>Project Name: {hoveredFeature.properties.fullName}</div>
-          <div>Project Category: {hoveredFeature.properties.category}</div>
+          <div>{ hoveredFeature.properties.fullName }</div>
+          <div>Project Category: {hoveredFeature.properties.description}</div>
         </div>
       )
     )
@@ -138,15 +133,7 @@ class Root extends Component {
             <Layer {...unclusteredPointLayer} />
           </Source>
 
-          {this._renderTooltip()}
-
-          {/* ***************************************** */}
-
-          {/* <Pins data={CITIES} onClick={this._onClickMarker} />
-
-          {this._renderPopup()} */}
-
-          {/* ***************************************** */}
+          { this._renderTooltip() }
 
           <div style={{ position: "absolute", right: 10, top: 10 }}>
             <FullscreenControl containerComponent={this.props.containerComponent} />
