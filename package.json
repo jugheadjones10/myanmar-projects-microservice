@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jugheadjones10/myanmar-projects-microservice#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
     "express": "^4.17.1",
     "geojson": "^0.5.0",
     "mongoose": "^5.8.3",

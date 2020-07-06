@@ -3,6 +3,8 @@ var path = require("path")
 var cors = require('cors')
 const request = require('request')
 
+const { locations2 } = require("./excel-to-mongo/index.js")
+
 var projectsRouter = require("./routes/projects")
 //Do I need to add /index.js for the above?
 
@@ -24,7 +26,6 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"))
 app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.json())
 
 app.use(express.static("classic/build"))
 
@@ -33,6 +34,12 @@ app.get("/", function(req, res){
 })
 
 app.use("/projects", projectsRouter)
+
+app.get("/json", function(req, res){
+  // locations.then(locations => {
+    res.send(locations2)
+  // })
+})
 
 app.listen(port, () =>
   console.log(`Example app listening on port ${port}!`)
