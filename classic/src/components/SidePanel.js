@@ -26,7 +26,7 @@ const SidePanel = ({ navState, project, actions }) => (
               project.donationCurrent &&
               <ProgressCard target={ project.donationTarget } current={ project.donationCurrent } />
             }
-            <ContentCard text={ project.description } src={ project.parsedUpdates[0].src }/>
+            <ContentCard text={ project.description } pictures={ project.parsedUpdates[0].pictures }/>
           </>
         : 
           <UpdatesTab updates={ project.parsedUpdates }/>

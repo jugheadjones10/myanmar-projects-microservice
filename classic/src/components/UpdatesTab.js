@@ -10,14 +10,14 @@ import "./UpdatesTab.css"
 const UpdatesTab = ({ updates }) => (
     <div className="updates-tab">
         {
-            updates.map(({text, src}) => (
-                <ContentCard text={ text } src={ src } key={ text }/>
+            updates
+            .sort((a, b) => (a.date > b.date) ? -1 : 1)
+            .map((x) => (
+                //Properties in x: text, pictures, src, date, url
+                <ContentCard { ...x } key={ x.text }/>
             ))
         }
     </div>
 )
-
-// UpdatesTab.propTypes = {
-// }
 
 export default UpdatesTab;

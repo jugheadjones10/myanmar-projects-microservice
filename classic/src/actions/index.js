@@ -23,7 +23,7 @@ const parseProjectUpdates = updates => {
         var postPromises = []
         updates.forEach(update => {
             var postId = update.substr(update.lastIndexOf('/') + 1)
-            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type},created_time,message&access_token=EAAjPCUaN90oBAALnm32enfc3VDtgT1MdZCpaZBq5hUIcuKzZAml9oWa1AyYCXQzZB6n3pmuzOPckSUdTBZBoZAgCjLO6ZCxN3FBdpeh3plzTZBmRtQTp3EfgipRtKbXAl5tO4XfkyBBnOo5dPGTt07VXqMVqyZBNqrB9ZAGEWeVlbUUAZDZD`)
+            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type,media},created_time,message,permalink_url&access_token=EAAjPCUaN90oBAALnm32enfc3VDtgT1MdZCpaZBq5hUIcuKzZAml9oWa1AyYCXQzZB6n3pmuzOPckSUdTBZBoZAgCjLO6ZCxN3FBdpeh3plzTZBmRtQTp3EfgipRtKbXAl5tO4XfkyBBnOo5dPGTt07VXqMVqyZBNqrB9ZAGEWeVlbUUAZDZD`)
                 .then(
                     (res) => res.json(),
                     (error) => console.log("There has been an error", error)
@@ -32,13 +32,18 @@ const parseProjectUpdates = updates => {
         })
 
         return Promise.all(postPromises).then(updates => {
-            console.log("These are the updates : " + updates[0].attachments.data[0])
+            console.log("These are the updates : " + updates[0].message)
 
             var parsedUpdates = []
             updates.forEach(update => {
+                var picData = update.attachments.data[0]
+                console.log(update)
                 parsedUpdates.push({
                     text: update.message,
-                    src: update.full_picture
+                    pictures: picData.subattachments ? picData.subattachments.data.map(x => x.media.image.src) : [picData.media.image.src],
+                    //Unix date number is stored, to be sorted later in UpdatesTab
+                    date: Date.parse(update.created_time),
+                    url: update.permalink_url
                 })
             })
             console.dir(parsedUpdates)

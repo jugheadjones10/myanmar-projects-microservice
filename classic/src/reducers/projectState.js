@@ -24,7 +24,7 @@ const initialState = {
     parsedUpdates: [
         {
             text: "This is a map view of the projects we have done so far.",
-            src: "https://gvh.sg/wp-content/uploads/2018/01/GVH-Logo-main-200.webp"
+            pictures: ["https://gvh.sg/wp-content/uploads/2018/01/GVH-Logo-main-200.webp"]
         }
     ]
 }

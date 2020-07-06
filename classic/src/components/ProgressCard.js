@@ -17,7 +17,7 @@ export default class ProgressCard extends React.Component {
                     </div>
                 </div>
                 <div className="progress-fraction">
-                    <div>${ this.props.current }</div><div> / ${ this.props.target }</div>
+                    <div>${ this.props.current } </div><div>/${ this.props.target }</div>
                 </div>
             </div>
         )

@@ -1,17 +1,61 @@
 import * as React from 'react'
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
+import { Tooltip } from 'antd'
 
 import "./ContentCard.css"
 
-import dad from "../images/dad.jpg"
+import newLink from "../icons/external-link.svg"
 
-const ContentCard =  ({ text, src }) => (
-    // https://scontent.fsin1-1.fna.fbcdn.net/v/t1.0-9/s720x720/56517111_1016928258500271_8677474430743478272_o.jpg?_nc_cat=101&_nc_sid=110474&_nc_oc=AQlEK9zFD0V07WXV_pH1THakoJzxXtp5Q07yD-10Z0VsWL-s6oCltal-itgrG1PREmc&_nc_ht=scontent.fsin1-1.fna&_nc_tp=7&oh=2358f48ef56a98b945199fdd20c45b84&oe=5F0650D9
-    <div className="content-card">
-        <div className="content-image" style={{ backgroundImage: `url(${ src })` }}/>
-        <div className="content-text">
-            { text }
+var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+}
+
+const ContentCard =  ({ text, date, url, pictures }) => {
+
+    return (
+        <div className="content-card">
+
+            <Slider {...settings}>
+                {
+                    pictures.map(pic => (
+                        <div className="content-image" key={ pic }>
+                            <img src={ pic } />
+                        </div>
+                    ))
+                }
+            </Slider>
+
+            <div className="content-text">
+                { text }
+            </div>
+
+            { 
+                date &&
+                <div className="date-tag">
+                    { new Date(date).toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }
+                </div>  
+            }
+
+            {
+                url &&
+                <Tooltip placement="bottom" title="Open FB post">
+                    <img
+                        className="new-link-icon"
+                        src={newLink}
+                        onClick={() => window.open(url, "_blank")}
+                    />
+                </Tooltip>
+            }       
         </div>
-    </div>
-)
+    )
+}
 
 export default ContentCard 

@@ -1,22 +1,111 @@
 .content-card{
     background-color: var(--bg-positive-color);
-    border-radius: 4px;
+    border-radius: var(--card-radius);
     display: flex;
     flex-direction: column;
     margin-bottom: 25px;
+    box-shadow: -1px 15px 30px -12px;
+    position: relative;
+}
+
+.content-card:hover .date-tag{
+    max-height: 50px;
+    height: 22px;
+    padding: 5px 10px;
+    transition: all 0.3s;
+}
+
+.date-tag{
+    max-height: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    background: #0000008f;
+    padding: 0;
+    border-radius: inherit;
+    font-size: 13px;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    transition: all 0.3s;
+}
+
+.content-card:hover .new-link-icon{
+    max-height: 50px;
+    height: 25px;
+    padding: 5px;
+    transition: all 0.3s;
+}
+
+.new-link-icon{
+    max-height: 0px;
+    height: 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
+    background-color: #0000008f;
+    border-radius: inherit;
+    overflow: hidden;
+    object-fit: contain;
+    transition: all 0.3s;
 }
 
 .content-image{
-    height: 161px;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    /* background-image: url(../images/dad.jpg); */
-    background-position: center;
-    background-size: cover;
+    height: 155px;
+}
+
+.content-image img{
+    width: 100%;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
 }
 
 .content-text{
-    padding: 10px;
+    padding: var(--card-padding);
     font-size: 13px;
     word-break: break-word;
+
+    overflow-y: hidden;
+    max-height: 155px;
+}
+
+.content-text span{
+    color: blue;
+}
+
+/* SLick slider overrides */
+.slick-slide{
+    height: 155px;
+}
+
+.slick-prev{
+    left: 15px;
+    z-index: 1;
+}
+
+.slick-next{
+    right: 15px;
+}
+
+.slick-dots{
+    bottom: 5px;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: white;
+}
+  
+.slick-dots li button:before {
+    opacity: 0.75;
+    color: white;
 }

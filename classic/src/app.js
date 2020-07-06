@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import MapGL, { Source, Layer, FullscreenControl } from 'react-map-gl'
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'
 
 import { setSidePanelProject } from './actions'
 import SidePanelContainer from "./components/SidePanelContainer"
@@ -12,7 +12,6 @@ import SidePanelContainer from "./components/SidePanelContainer"
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './layers'
 import reducer from './reducers'
 
-import 'antd/dist/antd.css'
 import "./global.css"
 
 const store = createStore(reducer, applyMiddleware(thunk))
@@ -89,7 +88,8 @@ class Root extends Component {
       hoveredFeature && (
         <div className="tooltip" style={{ left: x, top: y }}>
           <div>{ hoveredFeature.properties.fullName }</div>
-          <div>Project Category: {hoveredFeature.properties.description}</div>
+          <hr /> 
+          <div>{ hoveredFeature.properties.description }</div>
         </div>
       )
     )
@@ -104,6 +104,8 @@ class Root extends Component {
         overflowY: "unset"
       }}>
       
+        {/* <CSSReset /> */}
+
         <SidePanelContainer/>
 
         <MapGL

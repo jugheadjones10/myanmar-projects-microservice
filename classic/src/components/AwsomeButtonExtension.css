@@ -1,0 +1,53 @@
+.aws-btn {
+--button-default-height: 48px;
+--button-default-font-size: 14px;
+--button-default-border-radius: 6px;
+--button-horizontal-padding: 20px;
+--button-raise-level: 5px;
+--button-hover-pressure: 2;
+--transform-speed: 0.185s;
+--button-primary-color: #475472;
+--button-primary-color-dark: #2a3143;
+--button-primary-color-light: white;
+--button-primary-color-hover: #475472;
+--button-primary-color-active: #475472;
+--button-primary-border: none;
+--button-secondary-color: #25d366;
+--button-secondary-color-dark: #1a9247;
+--button-secondary-color-light: white;
+--button-secondary-color-hover: #25d366;
+--button-secondary-color-active: #25d366;
+--button-secondary-border: none;
+--button-anchor-color: #f3c8ad;
+--button-anchor-color-dark: #734922;
+--button-anchor-color-light: #4c3016;
+--button-anchor-color-hover: #f1bfa0;
+--button-anchor-border: 1px solid #8c633c;
+
+    margin-right: 16px;
+}
+
+.fb-self{
+--button-primary-color: #4868ad;
+--button-primary-color-dark: #324877;
+--button-primary-color-light: white;
+--button-primary-color-hover: #4868ad;
+--button-primary-color-active: #4868ad;
+}
+
+.linkedin-self{
+--button-primary-color: #0077b5;
+--button-primary-color-dark:#004569;
+--button-primary-color-light: white;
+--button-primary-color-hover: #0077b5;
+--button-primary-color-active: #0077b5;
+}
+
+
+.insta-self{
+    --button-primary-color: radial-gradient(circle at 25% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    --button-primary-color-dark: radial-gradient(circle at 25% 110%, #b9a800 0%, #938500 5%, #b10f00 45%,#8c0061 60%,#002ca9 90%);
+    --button-primary-color-light: white;
+    --button-primary-color-hover: radial-gradient(circle at 25% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+    --button-primary-color-active: radial-gradient(circle at 25% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+}
