@@ -3,14 +3,17 @@ const csvtojson = require("csvtojson")
 const locations = csvtojson()
     .fromFile("gvh-data-2.csv")
     .then(csvData => {
-        // console.log(csvData);
+        //console.log(csvData);
         return csvData.map(x => x.Location)
     })
 
 const locations2 = csvtojson()
     .fromFile("gvh-data-2.csv")
     .then(csvData => {
+
         var locationsArr = []
+        var dataArr = []
+
         csvData.map(x => {
             //Splitting URL links by next line characters
             x["URL Link to Facebook Post"] = x["URL Link to Facebook Post"].split(/\n\n|\n/)
@@ -32,10 +35,19 @@ const locations2 = csvtojson()
             })
             return x
         }).forEach(x => {
+            //console.log(x)
+            dataArr = dataArr.concat(x)
             locationsArr = locationsArr.concat(x["Location"])
         })
-        return locationsArr
+
+        return dataArr
+        // return locationsArr
     })
+    
+    // .then(y => {
+    //     console.log(y)
+    // })
+
 
 exports.locations = locations
 exports.locations2 = locations2
@@ -44,7 +56,6 @@ exports.locations2 = locations2
 //Data cleaning to do: 
 //Make list of unique locations and work with Linus to obtain latitude longitude pairs 
 //Parse locations so that multiple line locations are parsed into an array
-
 
 // Steps for cleaning of geo data :
 //Suggestions : instead of using a random number as the id, use the SEARCHABLE NAME of the place as the ID.
