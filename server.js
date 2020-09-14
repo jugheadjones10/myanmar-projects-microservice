@@ -35,9 +35,10 @@ app.get("/", function(req, res){
 
 app.use("/projects", projectsRouter)
 
-app.get("/json", function(req, res){
+app.get("/json", await function(req, res){
   // locations.then(locations => {
-    res.send(locations2)
+    var fulfilledLocations = await locations2
+    res.send(fulfilledLocations)
   // })
 })
 

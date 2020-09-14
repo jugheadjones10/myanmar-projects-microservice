@@ -6,7 +6,6 @@ var GeoJSON = require("geojson")
 exports.read_projects = function (req, res) {
   Project.find({}, function (err, projects) {
     if (err) console.log("There has been the following error: " + err)
-
     res.send(JSON.stringify(projects))
   })
 }
