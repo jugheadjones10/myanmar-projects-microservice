@@ -74,8 +74,8 @@ app.get("/finalCleaned", async function(req, res){
 
       }).map(x => {
         return {
-          lat: x.lat,
-          long: x.long
+          lat: x.long,
+          long: x.lat
         }
       })
 

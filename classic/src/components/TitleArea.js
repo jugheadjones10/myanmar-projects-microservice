@@ -15,8 +15,10 @@ const TitleArea = ({ fullName, category }) => (
         {
             category &&
             <div className="chip-holder">
-                <CatChip color={getCategoryColor(category)} category={category} />
-                <CatChip color={getParentCategory(category).color} category={getParentCategory(category).parentCat} />
+                <CatChip color={"#43AA8B"} category={category} />
+
+                {/* <CatChip color={getCategoryColor(category)} category={category} /> */}
+                {/* <CatChip color={getParentCategory(category).color} category={getParentCategory(category).parentCat} /> */}
             </div>
         }
         
