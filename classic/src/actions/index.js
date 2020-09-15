@@ -23,7 +23,7 @@ const parseProjectUpdates = updates => {
         var postPromises = []
         updates.forEach(update => {
             var postId = update.substr(update.lastIndexOf('/') + 1)
-            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type,media},created_time,message,permalink_url&access_token=EAAjPCUaN90oBANjuh82WvtNqznAR3ycYPZCnfY1I8ytsyzy06YiG0j6ddw9C3BUt16znqZBD6Aj0ZAGdjVG0HXTg9MxnpYy6ncdVzBLFZAmjpXJUfbkXpYGZBbZCtUrQGcH3YW4mr7f3BE3t9wYam5NHoClF7XLKQ72gtwVxAII3XrialibZAzYJOZBZAxl78jayTfaF9kDHC9QZDZD`)
+            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type,media},created_time,message,permalink_url&access_token=EAAjPCUaN90oBADmmZAVi60YENdGq5slvhD96nAtZADRB3lSZC0jEWk9vMJaCZCt1FTCd4NCjEGuXSpH5yIrAPt9ebgVIYZCN316GV3yka94pZC63lrDEuEaQ9QPEO42hNi0ZCoDSdcWZAuPb2zUK4EM2jYA3wVJ2DAe6c4IaZCA05NL1lp2MAzZB7EKFsa8XfjlZBNJQtksMRaKqAZDZD`)
                 .then(
                     (res) => res.json(),
                     (error) => console.log("There has been an error", error)
