@@ -42,7 +42,7 @@ app.get("/json", async function(req, res){
   // })
 })
 
-app.get("/coorsMappings", async function(req, res){
+app.get("/coordsMappings", async function(req, res){
   // locations.then(locations => {
     var coordsMappingsFulfilled = await coordsMappings
     res.send(coordsMappingsFulfilled)
