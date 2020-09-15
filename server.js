@@ -35,7 +35,7 @@ app.get("/", function(req, res){
 
 app.use("/projects", projectsRouter)
 
-app.get("/json", await function(req, res){
+app.get("/json", async function(req, res){
   // locations.then(locations => {
     var fulfilledLocations = await locations2
     res.send(fulfilledLocations)
