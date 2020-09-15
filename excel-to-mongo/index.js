@@ -70,14 +70,53 @@ const coordsMappings = csvtojson()
     //     console.log(x)
     // })
 
+const finalCleaned = coordsMappings.then(coords => {
+    //Coords is the mapping of locations names to lat and long
 
-// console.log(coordsMappings)
+    return locations2.then(excelData => {
+        // console.log(excelData)
+        return excelData.map(x => {
+            // console.log(x.Location)
+
+            //Some locations are not array. Only do stuff for arrays
+            if(Array.isArray(x.Location)){
+                x.Location = x.Location.map(x => {
+                    //Get array of coord objects that have the same location name as x. There should technically only be one element in the array
+                    var filteredCoords = coords.filter(coordObject => {
+                        if(x == coordObject["Location Name"]){
+                            return coordObject
+                        }
+                    })
+
+                    if(filteredCoords.length == 0){
+                        return {
+                            name: x,
+                        }
+                    }else{
+                        return {
+                            name: x,
+                            long: filteredCoords[0].Long,
+                            lat: filteredCoords[0].Lat
+                        }
+                    }
+
+            
+                })
+            }
+           
+            return x
+
+        })
+
+    })
+})
 
 
 
 exports.locations = locations
 exports.locations2 = locations2
 exports.coordsMappings = coordsMappings
+exports.finalCleaned = finalCleaned
 
 
 //Data cleaning to do: 
