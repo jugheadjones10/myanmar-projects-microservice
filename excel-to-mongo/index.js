@@ -50,6 +50,7 @@ const locations2 = csvtojson()
 const coordsMappings = csvtojson()
     .fromFile("coords.csv")
     .then(csvData => {
+
         return csvData.map(x => {
             //Deleting useless properties
             delete x["field5"]
