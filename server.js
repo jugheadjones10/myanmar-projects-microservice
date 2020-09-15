@@ -3,7 +3,7 @@ var path = require("path")
 var cors = require('cors')
 const request = require('request')
 
-const { locations2 } = require("./excel-to-mongo/index.js")
+const { locations2, coordsMappings } = require("./excel-to-mongo/index.js")
 
 var projectsRouter = require("./routes/projects")
 //Do I need to add /index.js for the above?
@@ -41,6 +41,14 @@ app.get("/json", async function(req, res){
     res.send(fulfilledLocations)
   // })
 })
+
+app.get("/coorsMappings", async function(req, res){
+  // locations.then(locations => {
+    var coordsMappingsFulfilled = await coordsMappings
+    res.send(coordsMappingsFulfilled)
+  // })
+})
+
 
 app.listen(port, () =>
   console.log(`Example app listening on port ${port}!`)

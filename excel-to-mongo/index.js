@@ -35,7 +35,6 @@ const locations2 = csvtojson()
             })
             return x
         }).forEach(x => {
-            //console.log(x)
             dataArr = dataArr.concat(x)
             locationsArr = locationsArr.concat(x["Location"])
         })
@@ -43,14 +42,41 @@ const locations2 = csvtojson()
         return dataArr
         // return locationsArr
     })
-    
     // .then(y => {
-    //     console.log(y)
+        // console.log(y)
     // })
+
+
+const coordsMappings = csvtojson()
+    .fromFile("coords.csv")
+    .then(csvData => {
+        return csvData.map(x => {
+            //Deleting useless properties
+            delete x["field5"]
+            delete x["Homes of all time list (from FB June 10th)"]
+            delete x["Current homes list (from FB June 10th)"]
+            return x
+        }).map(x =>{
+            //Remove double quotes from original location names
+            x['Location Name'] = x['Location Name'].replace(/['"]+/g, '')
+            return x
+        }).map(x => {
+            x['Location Name'] = x['Location Name'].replace(/,\s*$/, "")
+            return x
+        })
+    })
+    // .then(x => {
+    //     console.log(x)
+    // })
+
+
+// console.log(coordsMappings)
+
 
 
 exports.locations = locations
 exports.locations2 = locations2
+exports.coordsMappings = coordsMappings
 
 
 //Data cleaning to do: 
