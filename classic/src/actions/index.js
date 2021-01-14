@@ -25,7 +25,7 @@ const parseProjectUpdates = updates => {
             var postId = update.substr(update.lastIndexOf('/') + 1)
 
             //REMEMBER TO BUILD USING WEBPACK AFTER CHANGE
-            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type,media},created_time,message,permalink_url&access_token=EAAjPCUaN90oBAMAwCpeNntbZBYu6N3l6v0LT9GqGsXXb2ZBNdNypIBO6jZAfGiI7FjxcxHfycFnHAfJ8O59gb3LmLO1cUekfOCGjJAsBsdlyKHbO8nVr1UifB6noZAExXoedX5iJZAYz08gXOrGaWSzwjeTSLzpnc6MQ0XHFZCyn1jwYEaQY10s5hjFDOM6JzEJQMM7WstGAZDZD`)
+            var postPromise = fetch(`https://graph.facebook.com/375770749282695_${postId}?fields=full_picture,attachments{subattachments,media_type,media},created_time,message,permalink_url&access_token=EAAjPCUaN90oBAMQRxRDWikIRVcWFeBvNZBKZA1bubxCBAXsUgVx6jTolD55V8ElmgRWkIKypdYPPFtqZCkj9iNqA69ktZAzggQhJe4LRJsnvs3tkSdyIg8azjEtgGqIlzlZBTmezZAH1ZAQ6aZCsmf8ahh2CZCrb2zRPf7L77gPnoXgZDZD`)
                 .then(
                     (res) => res.json(),
                     (error) => console.log("There has been an error", error)
